@@ -6,7 +6,8 @@ jobs:
   build:
     runs-on: windows-2016        
     steps:
-     - uses: actions/checkout@master
+     - uses: actions/checkout@v2
+     - uses: microsoft/setup-msbuild@v1
        
      - name: Install vcexpress2010
        run: choco install vcexpress2010
@@ -28,7 +29,7 @@ jobs:
      - name: Core Build
        working-directory: build        
        run: msbuild BuildAll.proj /p:Platform="Win32"
-       shell: cmd
+
        
 
 
